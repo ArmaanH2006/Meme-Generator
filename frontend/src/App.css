@@ -1,40 +1,206 @@
 @import "tailwindcss";
 
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
   min-height: 100vh;
+  padding-bottom: 60px;
+}
+
+/* Header Styles */
+.App-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 40px 20px;
+  color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.Header--image {
+  display: block;
+  margin: 0 auto 20px;
+  max-width: 120px;
+  height: auto;
+  border-radius: 50%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  border: 4px solid rgba(255, 255, 255, 0.3);
+}
+
+.Header--text {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.header--title {
+  margin: 0;
+  font-size: 3.5rem;
+  font-weight: 800;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  letter-spacing: -1px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header--subtitle {
+  margin: 10px 0 0 0;
+  font-size: 1.2rem;
+  font-weight: 300;
+  opacity: 0.95;
+  letter-spacing: 0.5px;
 }
+
+/* Main Content */
+main {
+  padding: 40px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Form Styles */
+.meme-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 30px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.form--input {
+  padding: 14px 18px;
+  font-size: 16px;
+  border: 2px solid #e0e7ff;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.form--input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Meme Image Container */
+.meme {
+  position: relative;
+  display: inline-block;
+  margin: 30px auto;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.meme:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+}
+
+.meme-image {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+}
+
+.meme--text {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  margin: 0;
+  padding: 10px;
+  font-size: 32px;
+  font-weight: 900;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  font-family: 'Arial Black', sans-serif;
+  text-align: center;
+  line-height: 1.1;
+}
+
+.meme--text.top {
+  top: 10px;
+}
+
+.meme--text.bottom {
+  bottom: 10px;
+}
+
+/* Button Styles */
+.meme-button,
+.download-button,
+.upload-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  color: white;
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 10px 8px;
+  cursor: pointer;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.meme-button:hover,
+.download-button:hover,
+.upload-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+}
+
+.meme-button:active,
+.download-button:active,
+.upload-button:active {
+  transform: translateY(-1px);
+}
+
+.download-button {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  box-shadow: 0 4px 15px rgba(245, 87, 108, 0.4);
+}
+
+.download-button:hover {
+  box-shadow: 0 8px 25px rgba(245, 87, 108, 0.6);
+}
+
+.upload-button {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  box-shadow: 0 4px 15px rgba(79, 172, 254, 0.4);
+}
+
+.upload-button:hover {
+  box-shadow: 0 8px 25px rgba(79, 172, 254, 0.6);
+}
+
+/* File Input */
+input[type="file"] {
+  padding: 10px;
+  border: 2px dashed #667eea;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+input[type="file"]:hover {
+  border-color: #764ba2;
+  background: rgba(102, 126, 234, 0.05);
+}
+
